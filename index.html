@@ -12,10 +12,10 @@
 		<input type="text" placeholder="Github user..." ng-model="user">
 		<button ng-click="searchRepos()" class="btn">Get Repos ✅</button>
 		<ul>
-			<li ng-repeat="repo in listRepos"><a href={{repo.svn_url}}>{{repo.name}} - {{repo.language}}</a></li>
+			<li ng-repeat="repo in listRepos"><a href={{repo.svn_url}}>{{repo.name}}</a> - {{repo.language}}</li>
 		</ul>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="node_modules/angular/angular.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers/mainController.js"></script>
 	<script src="js/factories/factory.js"></script>
