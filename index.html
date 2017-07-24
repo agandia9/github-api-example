@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="githubApp">
+
 <head>
-	<meta charset="UTF-8">
-	<title>API GITHUB</title>
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>API GITHUB</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
 </head>
-<body>
+
+<body ng-controller="mainController">
 <h2>Get Repos from Github man! 🤘🏼🎸</h2>
-	<div class="searchUser" ng-controller="mainController">
-		<input type="text" placeholder="Github user..." ng-model="user">
-		<button ng-click="searchRepos()" class="btn">Get Repos ✅</button>
-		<ul>
-			<li ng-repeat="repo in listRepos"><a href={{repo.svn_url}}>{{repo.name}}</a> - {{repo.language}}</li>
-		</ul>
-	</div>
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/controllers/mainController.js"></script>
-	<script src="js/factories/factory.js"></script>
-	
+    <div class="row">
+        <div class="searchUser col-xs-6">
+            <input type="text" placeholder="Github user..." ng-model="user">
+            <button ng-click="searchRepos()" class="btn">Get Repos ✅</button>
+            <ul>
+                <li ng-repeat="repo in listRepos"><a href={{repo.svn_url}}>{{repo.name}}</a> - {{repo.language}}</li>
+            </ul>
+        </div>
+        <div class="col-xs-4 userBox">
+        	<h3>{{listRepos[0].owner.login}}</h3>
+        	<img class="img-circle" src="{{listRepos[0].owner.avatar_url}}" alt="">
+        </div>
+    </div>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/factories/factory.js"></script>
 </body>
+
 </html>
